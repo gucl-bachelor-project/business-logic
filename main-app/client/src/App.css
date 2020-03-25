@@ -1,0 +1,10 @@
+#support-testers-container {
+    display: flex;
+}
+
+.support-tester-item {
+    width: 250px;
+    margin: 20px;
+    border: 1px black dashed;
+    padding: 0px 5px 5px 5px;
+}

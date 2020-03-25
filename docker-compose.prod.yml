@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  main-app:
+    image: ${MAIN_APP_REPO_URL}
+    command: npm start
+    environment:
+      - LOG_APP_URL=${LOGGING_APP_HOST_URL}
+      - DB_ACCESS_APP_1_URL=${DB_ACCESS_APP_1_URL}
+      - DB_ACCESS_ADMIN_APP_1_URL=${DB_ACCESS_ADMIN_APP_1_URL}
+      - DB_ACCESS_APP_2_URL=${DB_ACCESS_APP_2_URL}
+      - DB_ACCESS_ADMIN_APP_2_URL=${DB_ACCESS_ADMIN_APP_2_URL}
+
+  support-1:
+    image: ${SUPPORT_APP_REPO_URL}
+
+  support-2:
+    image: ${SUPPORT_APP_REPO_URL}
+
+  support-3:
+    image: ${SUPPORT_APP_REPO_URL}
