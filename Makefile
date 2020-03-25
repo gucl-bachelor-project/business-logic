@@ -1,9 +1,14 @@
+network-setup:
+	docker network create log-app-network || true
+	docker network create db-access-app-network || true
+
 build-client:
 	docker volume create nodemodules_main_app_frontend
 	docker-compose -f ./main-app/client/docker-compose-builder.yml run --rm install
 	docker-compose -f ./main-app/client/docker-compose-builder.yml run --rm build
 
 dev:
+	$(MAKE) network-setup
 	$(MAKE) build-client
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 
