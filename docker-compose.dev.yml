@@ -7,6 +7,10 @@ networks:
     external: true
 
 services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:8080"
   main-app:
     build:
       context: ./main-app

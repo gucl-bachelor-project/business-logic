@@ -4,6 +4,12 @@ networks:
   main:
 
 services:
+  nginx:
+    networks:
+      - main
+    depends_on:
+      - main-app
+
   redis-db:
     image: redis
     expose:
@@ -16,10 +22,12 @@ services:
     restart: always
     environment:
       - REDIS_HOST=redis-db
-    ports:
-      - "8000:8080"
+    expose:
+      - 8080
     depends_on:
-      - redis-db
+      - support-1
+      - support-2
+      - support-3
     networks:
       - main
 

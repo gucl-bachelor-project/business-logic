@@ -1,6 +1,10 @@
 version: "3"
 
 services:
+  nginx:
+    image: ${NGINX_REPO_URL}
+    ports:
+      - "80:8080"
   main-app:
     image: ${MAIN_APP_REPO_URL}
     command: npm start
