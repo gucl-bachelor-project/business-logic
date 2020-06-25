@@ -8,7 +8,7 @@ const db2AccessRoute = require("../routes/db-access")(process.env.DB_ACCESS_APP_
 
 module.exports = function (app) {
     app.use(express.json());
-    app.use(cors({ origin: "*" }));
+    app.use(cors({origin: "*"}));
     app.use(express.static(path.join(__dirname, "../../../client", "build"))); // Serve front-end
     app.use("/app-errors", appErrorsRoute);
     app.use("/db-1-access", db1AccessRoute);

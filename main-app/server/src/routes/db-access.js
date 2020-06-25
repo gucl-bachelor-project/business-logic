@@ -1,7 +1,7 @@
 const axios = require("axios");
 const express = require("express");
 
-module.exports = function(dbAccessAppUrl, dbAccessAdminAppUrl) {
+module.exports = function (dbAccessAppUrl, dbAccessAdminAppUrl) {
     const router = express.Router();
 
     router.get("/users", async (req, res) => {

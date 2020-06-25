@@ -1,22 +1,22 @@
 {
-    "name": "bl-main-app-backend",
-    "version": "1.0.0",
-    "author": "Gustav Kofoed Clausen (gucl@itu.dk)",
-    "scripts": {
-        "start": "node src/server.js",
-        "start:dev": "npx nodemon src/server.js"
-    },
-    "dependencies": {
-        "axios": "^0.19.2",
-        "cors": "^2.8.5",
-        "express": "^4.17.1",
-        "express-async-errors": "^3.1.1",
-        "redis": "^2.8.0",
-        "socket.io": "^2.3.0",
-        "winston": "^3.2.1",
-        "winston-transport": "^4.3.0"
-    },
-    "devDependencies": {
-        "nodemon": "^2.0.2"
-    }
+  "name": "bl-main-app-backend",
+  "version": "1.0.0",
+  "author": "Gustav Kofoed Clausen (gucl@itu.dk)",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:dev": "npx nodemon src/server.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "redis": "^2.8.0",
+    "socket.io": "^2.3.0",
+    "winston": "^3.2.1",
+    "winston-transport": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
