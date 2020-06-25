@@ -19,7 +19,7 @@ prod-build:
 	docker build -t 468374654130.dkr.ecr.eu-central-1.amazonaws.com/bproject-nginx:latest -f ./nginx/Dockerfile ./nginx
 
 prod-push:
-	$$(aws2 ecr get-login --no-include-email --region eu-central-1)
+	echo $(aws ecr get-login-password) | docker login --password-stdin --username AWS 468374654130.dkr.ecr.eu-central-1.amazonaws.com/bproject-bl-main-app
 	aws2 s3 cp docker-compose.yml s3://gkc-bproject-app-docker-composes/business-logic/docker-compose.yml
 	aws2 s3 cp docker-compose.prod.yml s3://gkc-bproject-app-docker-composes/business-logic/docker-compose.prod.yml
 	docker push 468374654130.dkr.ecr.eu-central-1.amazonaws.com/bproject-bl-main-app
