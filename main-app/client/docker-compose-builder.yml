@@ -1,14 +1,14 @@
 version: "2"
 
 volumes:
-  nodemodules_main_app_frontend:
+  main_app_frontend_nodemodules:
     external: true
 
 services:
   base:
     image: node:alpine
     volumes:
-      - nodemodules_main_app_frontend:/app/node_modules
+      - main_app_frontend_nodemodules:/app/node_modules
       - .:/app
     working_dir: /app
 
