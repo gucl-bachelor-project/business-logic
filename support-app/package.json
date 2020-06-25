@@ -1,14 +1,14 @@
 {
-    "name": "bl-support-app",
-    "version": "1.0.0",
-    "main": "index.js",
-    "scripts": {
-        "start": "node src/index.js $SERVER_NAME"
-    },
-    "author": "Gustav Kofoed Clausen (gucl@itu.dk)",
-    "dependencies": {
-        "async-redis": "^1.1.7",
-        "express": "^4.17.1",
-        "uuid": "^3.4.0"
-    }
+  "name": "bl-support-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js $SERVER_NAME"
+  },
+  "author": "Gustav Kofoed Clausen (gucl@itu.dk)",
+  "dependencies": {
+    "async-redis": "^1.1.7",
+    "express": "^4.17.1",
+    "uuid": "^3.4.0"
+  }
 }

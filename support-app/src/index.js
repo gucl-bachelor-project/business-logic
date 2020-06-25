@@ -6,8 +6,8 @@ const port = process.env.PORT || 8080;
 
 app.use(express.json());
 
-var args = process.argv.slice(2);
-var serverName = args[0];
+const args = process.argv.slice(2);
+const serverName = args[0];
 if (!serverName) {
     console.error("No server name argument provided.");
     process.exit(1);
@@ -19,7 +19,7 @@ if (!serverName) {
  */
 function createRedisClient() {
     return new Promise((resolve, reject) => {
-        var client = asyncRedis.createClient(
+        const client = asyncRedis.createClient(
             process.env.REDIS_PORT || 6379,
             process.env.REDIS_HOST || "localhost"
         );
@@ -34,14 +34,14 @@ function createRedisClient() {
 app.post("/process", async (req, res) => {
     if (!req.body) return res.status(400).send("No required body of request");
 
-    var processMessage = {
+    const processMessage = {
         clientId: req.body.clientId,
         message: `Processed by '${serverName}'`,
         timestamp: new Date().toUTCString()
     };
 
     try {
-        var client = await createRedisClient();
+        const client = await createRedisClient();
 
         return Promise.resolve()
             .then(() => {
@@ -62,15 +62,15 @@ app.post("/process", async (req, res) => {
                 client.end(true);
             })
             .catch(err => {
-                console.error(err); // TOOD: Different logging?
+                console.error(err);
             });
     } catch (err) {
-        console.error(err); // TODO: Different logging?
+        console.error(err);
 
         return res.status(500).send("Dispatch failed. Error logged.");
     }
 });
 
 app.listen(port, () =>
-    console.log(`Server '${serverName}' up and running on port ${port}`)
+    console.log(`Server '${serverName}' up and running on port ${port}.`)
 );
