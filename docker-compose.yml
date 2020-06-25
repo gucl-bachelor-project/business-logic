@@ -1,16 +1,18 @@
-version: "3"
+version: "3.8"
 
 networks:
   main:
 
 services:
   nginx:
+    container_name: nginx
     networks:
       - main
     depends_on:
       - main-app
 
   redis-db:
+    container_name: redis-db
     image: redis
     expose:
       - 6379
@@ -25,39 +27,38 @@ services:
     expose:
       - 8080
     depends_on:
-      - support-1
-      - support-2
-      - support-3
+      - support-1-app
+      - support-2-app
+      - support-3-app
     networks:
       - main
 
-  support-1:
-    container_name: support-1
+  support-1-app:
+    container_name: support-app-1
     restart: always
     environment:
-      - SERVER_NAME=support-1
+      - SERVER_NAME=support-1-app
       - REDIS_HOST=redis-db
     depends_on:
       - redis-db
     networks:
       - main
 
-  support-2:
-    container_name: support-2
+  support-2-app:
+    container_name: support-app-2
     restart: always
     environment:
-      - SERVER_NAME=support-2
+      - SERVER_NAME=support-2-app
       - REDIS_HOST=redis-db
     depends_on:
       - redis-db
     networks:
       - main
 
-  support-3:
-    container_name: support-3
-    restart: always
+  support-3-app:
+    container_name: support-app-3
     environment:
-      - SERVER_NAME=support-3
+      - SERVER_NAME=support-3-app
       - REDIS_HOST=redis-db
     depends_on:
       - redis-db

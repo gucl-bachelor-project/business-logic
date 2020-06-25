@@ -1,25 +1,27 @@
-version: "3"
+version: "3.8"
 
 services:
   nginx:
     image: ${NGINX_REPO_URL}
     ports:
       - "80:8080"
+
   main-app:
     image: ${MAIN_APP_REPO_URL}
     command: npm start
     environment:
-      - LOG_APP_URL=${LOGGING_APP_HOST_URL}
-      - DB_ACCESS_APP_1_URL=${DB_ACCESS_APP_1_URL}
-      - DB_ACCESS_ADMIN_APP_1_URL=${DB_ACCESS_ADMIN_APP_1_URL}
-      - DB_ACCESS_APP_2_URL=${DB_ACCESS_APP_2_URL}
-      - DB_ACCESS_ADMIN_APP_2_URL=${DB_ACCESS_ADMIN_APP_2_URL}
+      - NODE_ENV=production
+      - LOGGING_APP_URL=${LOGGING_APP_HOST_URL}
+      - DB_ADMINISTRATION_APP_1_URL=${DB_ADMINISTRATION_APP_1_URL}
+      - DB_ADMIN_ADMINISTRATION_APP_1_URL=${DB_ADMIN_ADMINISTRATION_APP_1_URL}
+      - DB_ADMINISTRATION_APP_2_URL=${DB_ADMINISTRATION_APP_2_URL}
+      - DB_ADMIN_ADMINISTRATION_APP_2_URL=${DB_ADMIN_ADMINISTRATION_APP_2_URL}
 
-  support-1:
+  support-1-app:
     image: ${SUPPORT_APP_REPO_URL}
 
-  support-2:
+  support-2-app:
     image: ${SUPPORT_APP_REPO_URL}
 
-  support-3:
+  support-3-app:
     image: ${SUPPORT_APP_REPO_URL}

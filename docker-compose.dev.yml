@@ -1,9 +1,10 @@
-version: "3"
+version: "3.8"
 
 networks:
-  log-app-network:
+  logging-network:
     external: true
-  db-access-app-network:
+
+  persistence-network:
     external: true
 
 services:
@@ -11,33 +12,33 @@ services:
     build: ./nginx
     ports:
       - "8080:8080"
+
   main-app:
     build:
       context: ./main-app
-      dockerfile: Dockerfile
     volumes:
       - ./main-app/server/:/usr/src/app/server
       - /usr/src/app/server/node_modules
     command: npm run start:dev
     environment:
       - NODE_ENV=development
-      - LOG_APP_URL=log-app:8080
-      - DB_ACCESS_APP_1_URL=db-access-app-1:8080
-      - DB_ACCESS_ADMIN_APP_1_URL=db-access-app-admin-1:8080
-      - DB_ACCESS_APP_2_URL=db-access-app-2:8080
-      - DB_ACCESS_ADMIN_APP_2_URL=db-access-app-admin-2:8080
+      - LOGGING_APP_URL=logging-app:8080
+      - DB_ADMINISTRATION_APP_1_URL=db-administration-app-1:8080
+      - DB_ADMIN_ADMINISTRATION_APP_1_URL=db-admin-administration-app-1:8080
+      - DB_ADMINISTRATION_APP_2_URL=db-administration-app-2:8080
+      - DB_ADMIN_ADMINISTRATION_APP_2_URL=db-admin-administration-app-2:8080
     networks:
-      - log-app-network
-      - db-access-app-network
+      - logging-network
+      - persistence-network
 
-  support-1:
+  support-1-app:
     build:
       context: ./support-app
 
-  support-2:
+  support-2-app:
     build:
       context: ./support-app
 
-  support-3:
+  support-3-app:
     build:
       context: ./support-app
