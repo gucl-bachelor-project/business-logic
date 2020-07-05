@@ -8,7 +8,7 @@ import {getBaseEndpoint} from "../../../util/constants";
  */
 function TriggerError() {
     const [isTriggeringError, setTriggeringError] = useState(false);
-    const [isErrorResult, setIsErrorResult] = useState(null);
+    const [isErrorResult, setErrorResult] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
     const [showResult, setShowResult] = useState(false);
 
@@ -17,13 +17,13 @@ function TriggerError() {
             axios
                 .post(`${getBaseEndpoint()}/app-errors/trigger`)
                 .then(() => {
-                    setIsErrorResult(false);
+                    setErrorResult(false);
                 })
                 .catch(err => {
                     const isTriggerSuccessful = err.response && err.response.status === 500 && err.response.data === "test";
 
                     setErrorMessage(!isTriggerSuccessful ? err.message : null);
-                    setIsErrorResult(isTriggerSuccessful);
+                    setErrorResult(isTriggerSuccessful);
                 })
                 .finally(() => {
                     setTriggeringError(false);

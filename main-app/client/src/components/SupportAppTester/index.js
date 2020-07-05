@@ -5,9 +5,9 @@ import {Toast} from "react-bootstrap";
 import {getBaseEndpoint} from "../../util/constants";
 
 /**
- * Sends request to main app to call support app
+ * Sends request to main app to process background job in support app.
  *
- * @param supportNum Number of support app to test
+ * @param supportNum Which support app to test (i.e. 1, 2 or 3)
  */
 function testCall(supportNum) {
     return new Promise((resolve, reject) => {
@@ -39,16 +39,16 @@ function testCall(supportNum) {
  */
 function SupportAppTester(props) {
     const [isLoading, setLoading] = useState(false);
-    const [isSuccess, setResult] = useState(null);
+    const [isSuccess, setSuccess] = useState(null);
     const [error, setError] = useState(null);
     const [showResult, setShowResult] = useState(false);
 
     useEffect(() => {
         if (isLoading) {
             testCall(props.supportNum).then(() => {
-                setResult(true);
+                setSuccess(true);
             }).catch(err => {
-                setResult(false);
+                setSuccess(false);
                 setError(err);
             }).finally(() => {
                 setLoading(false);

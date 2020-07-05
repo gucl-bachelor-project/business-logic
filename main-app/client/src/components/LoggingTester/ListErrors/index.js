@@ -4,6 +4,9 @@ import ReactJson from "react-json-view";
 import {getBaseEndpoint} from "../../../util/constants";
 import {Button} from "react-bootstrap";
 
+/**
+ * Properties for JSON view.
+ */
 const defaultJsonViewProps = {
     src: null,
     collapsed: true,
@@ -16,10 +19,10 @@ const defaultJsonViewProps = {
 };
 
 /**
- * Component to fetch and list all logged errors
+ * Component to fetch and list all logged errors.
  */
 function ListErrors() {
-    const [isLoading, setLoading] = useState(true);
+    const [isLoading, setLoading] = useState(false);
     const [result, setResult] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
 
@@ -50,7 +53,6 @@ function ListErrors() {
 
     return (
         <>
-            <h5>Logged Errors</h5>
             {result ?
                 <ReactJson
                     name={false}
@@ -72,7 +74,7 @@ function ListErrors() {
                 disabled={isLoading}
                 onClick={!isLoading ? handleClick : null}
             >
-                {isLoading ? `Waiting for response...` : `Refresh`}
+                {isLoading ? `Waiting for response...` : `Load errors`}
             </Button>
         </>
     );

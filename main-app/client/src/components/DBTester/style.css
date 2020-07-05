@@ -1,0 +1,8 @@
+.forms > div {
+    width: 250px;
+    background: rgba(232, 236, 241, 0.5);
+}
+
+.forms > div:not(:first-child) {
+    margin-left: 20px;
+}
