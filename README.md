@@ -34,6 +34,13 @@ This setup can automatically connect to the [Persistence](https://github.com/guc
 and [Logging](https://github.com/gucl-bachelor-project/logging-app) subsystems, while running it locally on your
 machine, as external Docker network references is set up to the other setups.
 
+## Developing Locally
+
+Execute the following command in this directory to build, setup, and start the application: `make dev`.  
+[Nodemon](https://github.com/remy/nodemon), that is enabled by default, automatically restarts the application when
+file changes in the directory are detected. Thus, there is no need to rerun the `make dev` command whenever changes
+are made to application code.
+
 ## Build and Publish Artifacts
 
 Execute the following commands in this directory to build and publish the artifacts for production use:
