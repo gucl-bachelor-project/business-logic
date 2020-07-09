@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const errorMiddleware = require("../middleware/error");
-const appErrorsRoute = require("../routes/app-errors")(process.env.LOG_APP_URL);
+const appErrorsRoute = require("../routes/app-errors")(process.env.LOGGING_APP_URL);
 const db1AccessRoute = require("../routes/db-access")(process.env.DB_ADMINISTRATION_APP_1_URL, process.env.DB_ADMIN_ADMINISTRATION_APP_1_URL);
 const db2AccessRoute = require("../routes/db-access")(process.env.DB_ADMINISTRATION_APP_2_URL, process.env.DB_ADMIN_ADMINISTRATION_APP_2_URL);
 
