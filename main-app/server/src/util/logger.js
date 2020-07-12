@@ -13,7 +13,7 @@ class LoggingServiceTransport extends Transport {
 
     postToLogService(data, logResourcePath) {
         axios
-            .post(`http://${process.env.LOGGING_APP_URL}/log/${logResourcePath}`, {
+            .post(`http://${process.env.LOGGING_APP_HOST_URL}/log/${logResourcePath}`, {
                 appName: "main-app",
                 timestamp: new Date().toISOString(),
                 data: data
