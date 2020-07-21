@@ -26,7 +26,9 @@ In order to build and run the application locally on your machine, the following
     -   [Docker](https://docs.docker.com/install/) (version >= 19.03.8)
     -   [Docker Compose](https://docs.docker.com/compose/install/) (version >= 1.26.0)
     -   (Optionally) [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) (version >= 2.0)
-    for pushing artifacts to this project's Docker image registry and object storage.
+        for pushing artifacts to this project's Docker image registry.
+    -   (Optionally) [s3cmd](https://s3tools.org/s3cmd) (version >= 2.1.0)
+        for pushing artifacts to this project's object storage.
 
 ## Connecting to Persistence and Logging subsystem
 

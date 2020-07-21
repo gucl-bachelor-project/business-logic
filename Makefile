@@ -21,8 +21,8 @@ prod-build:
 
 prod-push:
 	echo $$(aws ecr get-login-password) | docker login --password-stdin --username AWS 468374654130.dkr.ecr.eu-central-1.amazonaws.com/bproject-bl-main-app
-	aws s3 cp docker-compose.yml s3://bproject-app-docker-composes/business-logic/docker-compose.yml
-	aws s3 cp docker-compose.prod.yml s3://bproject-app-docker-composes/business-logic/docker-compose.prod.yml
+	s3cmd put docker-compose.yml s3://bproject-bucket/app-docker-compose-files/business-logic/docker-compose.yml
+	s3cmd put docker-compose.prod.yml s3://bproject-bucket/app-docker-compose-files/business-logic/docker-compose.prod.yml
 	docker push 468374654130.dkr.ecr.eu-central-1.amazonaws.com/bproject-bl-main-app
 	docker push 468374654130.dkr.ecr.eu-central-1.amazonaws.com/bproject-bl-support-app
 	docker push 468374654130.dkr.ecr.eu-central-1.amazonaws.com/bproject-nginx
